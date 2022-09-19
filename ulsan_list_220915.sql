@@ -45,9 +45,9 @@ alter table contents_review modify cre_id constraint contents_review_cre_id_nn n
 
 
 --외래키
+--공연전시목록 번호cmt20id는 공연전시한줄평 c_cmt20id의 부모키로 설정
 alter table contents_review add constraint contents_review_c_cmt20id_fk 
         FOREIGN key(c_cmt20id) references contents(cmt20id);
---공연전시목록 번호cmt20id는 공연전시한줄평 c_cmt20id의 부모키로 설정
 
 commit;
 
