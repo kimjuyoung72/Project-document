@@ -1,5 +1,5 @@
 --공연전시목록은 기존 공공데이터 컬럼명칭에 c만 덧붙임
---공연전시목록 번호cmt20id는 공연전시한줄평 c_id의 부모키로 설정
+--공연전시목록 번호cmt20id는 공연전시한줄평 c_cmt20id의 부모키로 설정
 
 --1)
 drop table contents_review;
@@ -32,7 +32,7 @@ alter table contents modify cmt20id constraint contents_id_nn not null;
 --공연전시한줄평
 create table contents_review(
             cre_id VARCHAR2(11),
-            c_id VARCHAR2(11),
+            c_cmt20id VARCHAR2(11),
             nickname VARCHAR2(30),
             cre_review CLOB,
 			c_cdate TIMESTAMP,
@@ -45,8 +45,8 @@ alter table contents_review modify cre_id constraint contents_review_cre_id_nn n
 
 
 --외래키
-alter table contents_review add constraint contents_review_c_id_fk 
-        FOREIGN key(c_id) references contents(cmt20id);
+alter table contents_review add constraint contents_review_c_cmt20id_fk 
+        FOREIGN key(c_cmt20id) references contents(cmt20id);
 
 commit;
 
